@@ -8,56 +8,52 @@ Preface:
 - Encourage students to try converting Compose files to K8s YAML (Module 06 will provide patterns).
 
 Author: Arira Ai
-
+bash
+```
 docker-to-k8s-mastery/
-├── .gitignore                          # Excludes venv, pycache, .env files
-├── LICENSE                             # MIT License for open educational use
-├── README.md                           # Master Syllabus, Prerequisites, and Setup Guide
-
-├── 00-setup/                           # Module 0: Environment Preparation
-│   ├── README.md                       # Guide for Docker Desktop/Minikube installation
-│   └── verify_env.sh                   # Script to validate Docker, Python, Git installation
-
-├── 01-basics/                          # Module 1: Images & Containers
-│   ├── README.md                       # Module Overview: The Atom of Cloud Native
-│   ├── 01-hello-world/                 # Exercise: The Container Lifecycle
+├── .gitignore
+├── LICENSE
+├── README.md
+├── 00-setup/
+│   ├── README.md
+│   └── verify_env.sh
+├── 01-basics/
+│   ├── README.md
+│   ├── 01-hello-world/
 │   │   ├── README.md
 │   │   └── Dockerfile
-│   ├── 02-custom-images/               # Exercise: Building and Layering
+│   ├── 02-custom-images/
 │   │   ├── README.md
 │   │   ├── app.py
 │   │   ├── requirements.txt
 │   │   └── Dockerfile
-│   └── 03-multi-stage-builds/          # Exercise: Optimization for Production
+│   └── 03-multi-stage-builds/
 │       ├── README.md
 │       └── Dockerfile
-
-├── 02-persistence/                     # Module 2: Data Persistence
-│   ├── README.md                       # Theory: OverlayFS vs. Volumes
-│   ├── 01-ephemeral-data/              # Exercise: Proving Data Volatility
+├── 02-persistence/
+│   ├── README.md
+│   ├── 01-ephemeral-data/
 │   │   ├── README.md
 │   │   └── Dockerfile
-│   ├── 02-named-volumes/               # Exercise: Database Persistence Lifecycle
+│   ├── 02-named-volumes/
 │   │   ├── README.md
 │   │   └── postgres-test.sh
-│   └── 03-bind-mounts/                 # Exercise: Config Injection & Dev Workflows
+│   └── 03-bind-mounts/
 │       ├── README.md
 │       ├── nginx.conf
 │       └── html/
 │           └── index.html
-
-├── 03-networking/                      # Module 3: Networking
-│   ├── README.md                       # Theory: Bridge, Host, and Overlay Networks
-│   ├── 01-bridge-networks/             # Exercise: Manual Container Linking
+├── 03-networking/
+│   ├── README.md
+│   ├── 01-bridge-networks/
 │   │   ├── README.md
 │   │   └── verify-bridge.sh
-│   └── 02-container-dns/               # Exercise: Service Discovery via Names
+│   └── 02-container-dns/
 │       ├── README.md
 │       └── network-test.sh
-
-├── 04-compose/                         # Module 4: Docker Compose
-│   ├── README.md                       # Theory: Declarative Orchestration
-│   ├── 01-the-stack/                   # Exercise: Multi-Service Architecture
+├── 04-compose/
+│   ├── README.md
+│   ├── 01-the-stack/
 │   │   ├── README.md
 │   │   ├── docker-compose.yml
 │   │   ├── .env
@@ -65,25 +61,24 @@ docker-to-k8s-mastery/
 │   │       ├── Dockerfile
 │   │       ├── app.py
 │   │       └── requirements.txt
-│   └── 02-healthchecks-startup/        # Exercise: Handling Dependency Race Conditions
+│   └── 02-healthchecks-startup/
 │       ├── README.md
 │       ├── docker-compose.yml
 │       └── app/
-│           ├── wait-for-it.sh          # Legacy script for comparison
+│           ├── wait-for-it.sh
 │           └── Dockerfile
-
-├── 05-swarm/                           # Module 5: Docker Swarm
-│   ├── README.md                       # Theory: Introduction to Clustering
-│   ├── 01-service-scaling/             # Exercise: Replicas and Load Balancing
+├── 05-swarm/
+│   ├── README.md
+│   ├── 01-service-scaling/
 │   │   └── docker-compose-stack.yml
-│   └── 02-rolling-updates/             # Exercise: Update Strategies
+│   └── 02-rolling-updates/
 │       └── docker-compose-update.yml
-
-└── 06-pre-k8s-architecture/            # Module 6: Pre-K8s Architecture
-    ├── README.md                       # Theory: The Limits of Compose
-    ├── 01-minikube-setup/              # Exercise: Local K8s Validation
+└── 06-pre-k8s-architecture/
+    ├── README.md
+    ├── 01-minikube-setup/
     │   └── verify-cluster.sh
-    └── 02-manifest-translation/        # Exercise: Kompose and YAML mapping
+    └── 02-manifest-translation/
         ├── pod-vs-container.md
         ├── compose-file.yml
         └── kompose-intro.md
+```
