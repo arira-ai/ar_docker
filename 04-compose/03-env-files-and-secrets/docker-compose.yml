@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "5002:5000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL
+      - FLAVOR
+    # For development, you can mount a file with sensitive content (non-Swarm)
+    volumes:
+      - ./secrets/local_pg_pass:/run/secrets/db_password:ro

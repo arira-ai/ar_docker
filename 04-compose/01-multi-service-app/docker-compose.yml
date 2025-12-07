@@ -1,0 +1,31 @@
+# docker-compose.yml — Multi-service app (web + db)
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: john
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: demo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - appnet
+
+  web:
+    build: ./web
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://john:pass123@db:5432/demo
+    depends_on:
+      - db
+    networks:
+      - appnet
+
+volumes:
+  db_data:
+
+networks:
+  appnet:
