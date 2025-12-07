@@ -8,7 +8,7 @@ Preface:
 - Encourage students to try converting Compose files to K8s YAML (Module 06 will provide patterns).
 
 Author: Arira Ai
-bash
+
 ```
 docker-to-k8s-mastery/
 ├── .gitignore
