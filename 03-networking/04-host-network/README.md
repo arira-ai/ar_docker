@@ -1,3 +1,3 @@
-# 03-networking/01-bridge-network
+# 03-networking/03-user-defined-networks
 
 Placeholder exercise. Full content can be expanded on request.
