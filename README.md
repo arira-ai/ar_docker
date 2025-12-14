@@ -11,74 +11,35 @@ Author: Arira Ai
 
 ```
 docker-to-k8s-mastery/
-├── .gitignore
-├── LICENSE
-├── README.md
-├── 00-setup/
-│   ├── README.md
-│   └── verify_env.sh
-├── 01-basics/
-│   ├── README.md
-│   ├── 01-hello-world/
-│   │   ├── README.md
-│   │   └── Dockerfile
-│   ├── 02-custom-images/
-│   │   ├── README.md
-│   │   ├── app.py
-│   │   ├── requirements.txt
-│   │   └── Dockerfile
-│   └── 03-multi-stage-builds/
-│       ├── README.md
-│       └── Dockerfile
+├── 01-images-containers/
+│   ├── 01-dockerfile-basics/
+│   ├── 02-layers-and-caching/
+│   ├── 03-cmd-vs-entrypoint/
+│   └── 04-lifecycle-start-stop/
 ├── 02-persistence/
-│   ├── README.md
-│   ├── 01-ephemeral-data/
-│   │   ├── README.md
-│   │   └── Dockerfile
-│   ├── 02-named-volumes/
-│   │   ├── README.md
-│   │   └── postgres-test.sh
-│   └── 03-bind-mounts/
-│       ├── README.md
-│       ├── nginx.conf
-│       └── html/
-│           └── index.html
+│   ├── 01-basic-volumes/
+│   ├── 02-bind-mounts/
+│   ├── 03-named-volumes-lifecycle/
+│   └── 04-backup-restore-volume/
 ├── 03-networking/
-│   ├── README.md
-│   ├── 01-bridge-networks/
-│   │   ├── README.md
-│   │   └── verify-bridge.sh
-│   └── 02-container-dns/
-│       ├── README.md
-│       └── network-test.sh
+│   ├── 01-bridge-network/
+│   ├── 02-container-to-container/
+│   ├── 03-user-defined-networks/
+│   └── 04-dns-and-service-discovery/
 ├── 04-compose/
-│   ├── README.md
-│   ├── 01-the-stack/
-│   │   ├── README.md
-│   │   ├── docker-compose.yml
-│   │   ├── .env
-│   │   └── app/
-│   │       ├── Dockerfile
-│   │       ├── app.py
-│   │       └── requirements.txt
-│   └── 02-healthchecks-startup/
-│       ├── README.md
-│       ├── docker-compose.yml
-│       └── app/
-│           ├── wait-for-it.sh
-│           └── Dockerfile
+│   ├── 01-multi-service-app/
+│   ├── 02-depends-on-and-healthcheck/
+│   ├── 03-env-files-and-secrets/
+│   └── 04-scale-and-recreate/
 ├── 05-swarm/
-│   ├── README.md
-│   ├── 01-service-scaling/
-│   │   └── docker-compose-stack.yml
-│   └── 02-rolling-updates/
-│       └── docker-compose-update.yml
-└── 06-pre-k8s-architecture/
-    ├── README.md
-    ├── 01-minikube-setup/
-    │   └── verify-cluster.sh
-    └── 02-manifest-translation/
-        ├── pod-vs-container.md
-        ├── compose-file.yml
-        └── kompose-intro.md
+│   ├── 01-init-swarm/
+│   ├── 02-services-and-replicas/
+│   ├── 03-updates-and-rollbacks/
+│   └── 04-overlay-networks/
+├── 06-pre-k8s-architecture/
+│   ├── 01-imperative-vs-declarative/
+│   ├── 02-application-structure-for-k8s/
+│   └── 03-mapping-docker-concepts-to-k8s/
+└── README.md
+
 ```
