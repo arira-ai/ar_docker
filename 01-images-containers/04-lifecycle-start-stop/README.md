@@ -1,4 +1,3 @@
-````md
 # 04 – Container Lifecycle: Start, Stop, and Restart
 
 ## 1. Basics: Container Lifecycle
@@ -14,9 +13,7 @@ Understanding this lifecycle is critical for debugging, automation, and Kubernet
 5. Stopped
 6. Removed
 
-Containers are **ephemeral** by design. Once stopped and removed, they do not retain state unless external storage is used.
-
----
+Containers are **ephemeral** by design. Once stopped and removed, they do not retain state unless external storage is used. This can discussed in the volumes concepts.
 
 ## 2. Container Lifecycle States Explained
 
@@ -41,7 +38,6 @@ Containers are **ephemeral** by design. Once stopped and removed, they do not re
 - Container metadata is deleted
 - Container no longer exists
 
----
 
 ## 3. How Container Lifecycle Works (Kubernetes Perspective)
 
@@ -57,7 +53,6 @@ Containers are **ephemeral** by design. Once stopped and removed, they do not re
 
 Kubernetes constantly monitors container state and **restarts containers automatically** based on restart policy.
 
----
 
 ## 4. Hands-on Practice: Container Lifecycle Commands
 
@@ -73,8 +68,6 @@ Verify container state:
 docker ps -a
 ```
 
----
-
 ### Step 2: Start the Container
 
 ```bash
@@ -86,8 +79,6 @@ Verify:
 ```bash
 docker ps
 ```
-
----
 
 ### Step 3: Stop the Container Gracefully
 
@@ -106,8 +97,6 @@ Verify:
 docker ps -a
 ```
 
----
-
 ### Step 4: Restart the Container
 
 ```bash
@@ -119,7 +108,6 @@ This command performs:
 * Stop
 * Start
 
----
 
 ### Step 5: Pause and Unpause the Container
 
@@ -130,7 +118,6 @@ docker unpause lifecycle-demo
 
 Pausing freezes all container processes without stopping them.
 
----
 
 ### Step 6: Remove the Container
 
@@ -143,8 +130,6 @@ Force remove (if running):
 ```bash
 docker rm -f lifecycle-demo
 ```
-
----
 
 ## 5. Signals and Graceful Shutdown
 
@@ -162,8 +147,6 @@ Set custom timeout:
 docker stop -t 30 lifecycle-demo
 ```
 
----
-
 ## 6. How This Helps in Learning Kubernetes
 
 Understanding container lifecycle helps you:
@@ -179,8 +162,6 @@ Kubernetes uses container lifecycle events for:
 * Auto-healing
 * Rolling updates
 
----
-
 ## 7. Conclusion and Summary
 
 At the end of this module, you learned:
@@ -192,8 +173,6 @@ At the end of this module, you learned:
 
 This knowledge is essential for **stable containerized applications**.
 
----
-
 ## 8. Practice Questions
 
 ### Conceptual Questions
@@ -203,8 +182,6 @@ This knowledge is essential for **stable containerized applications**.
 3. Why are containers considered ephemeral?
 4. What is the paused state?
 
----
-
 ### Command-Based Questions
 
 5. Command to create a container without starting it
@@ -212,15 +189,11 @@ This knowledge is essential for **stable containerized applications**.
 7. Command to restart a container
 8. Command to force remove a running container
 
----
-
 ### Kubernetes-Oriented Questions
 
 9. How does Kubernetes handle container restarts?
 10. What happens to a Pod when its container crashes?
 11. Why is graceful shutdown important in Kubernetes?
-
----
 
 ### Hands-on Tasks
 
