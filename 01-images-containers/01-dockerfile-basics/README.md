@@ -12,9 +12,7 @@ It includes everything required to run an application:
 * Required libraries and dependencies
 * Environment variables and default configuration
 
-A Docker image **cannot run by itself**. It must be used to create a container.
-
----
+A Docker image **cannot run by itself**. It must be used to create a **container**.
 
 ### Docker Container
 
@@ -27,8 +25,6 @@ Key characteristics of containers:
 * Can be started, stopped, and deleted quickly
 * Multiple containers can be created from a single image
 
----
-
 ### Image vs Container – Simple Analogy
 
 | Concept          | Analogy                           |
@@ -38,7 +34,7 @@ Key characteristics of containers:
 | Image            | Application installer             |
 | Container        | Installed and running application |
 
----
+
 
 ## 2. How Images and Containers Work (Kubernetes Perspective)
 
@@ -49,7 +45,6 @@ Key characteristics of containers:
 3. Create a container from the image
 4. Run the application inside the container
 
----
 
 ### Docker and Kubernetes Mapping
 
@@ -71,8 +66,6 @@ Understanding images vs containers is mandatory before learning:
 * ReplicaSets
 * Scaling
 
----
-
 ## 3. Hands-on Practice: Images and Containers
 
 ### Step 1: Verify Docker Installation
@@ -89,7 +82,6 @@ Expected output:
 Docker version XX.XX.X
 ```
 
----
 
 ### Step 2: Pull an Image from Docker Hub
 
@@ -109,8 +101,6 @@ Verify downloaded images:
 ```bash
 docker images
 ```
-
----
 
 ### Step 3: Run a Container from the Image
 
@@ -132,8 +122,6 @@ Verify running container:
 docker ps
 ```
 
----
-
 ### Step 4: Access the Running Container
 
 Open a browser and navigate to:
@@ -143,8 +131,6 @@ http://localhost:8080
 ```
 
 You should see the **Nginx Welcome Page**, confirming the container is running.
-
----
 
 ### Step 5: Inspect the Container
 
@@ -161,8 +147,6 @@ This command shows:
 * Mounts
 * Runtime settings
 
----
-
 ### Step 6: Stop and Remove the Container
 
 Commands:
@@ -178,8 +162,6 @@ List all containers (running and stopped):
 docker ps -a
 ```
 
----
-
 ### Step 7: Remove the Image
 
 Command:
@@ -190,7 +172,7 @@ docker rmi nginx
 
 This removes the image from the local system.
 
----
+
 
 ## 4. Key Differences Between Images and Containers
 
@@ -202,7 +184,6 @@ This removes the image from the local system.
 | Purpose   | Template   | Application runtime |
 | Lifecycle | Built once | Created many times  |
 
----
 
 ## 5. How This Helps in Learning Kubernetes
 
@@ -215,7 +196,6 @@ After understanding images and containers:
 
 This concept directly applies to Kubernetes workload management.
 
----
 
 ## 6. Conclusion and Summary
 
@@ -229,8 +209,6 @@ At the end of this module, you learned:
 
 This is the **foundation for container orchestration and Kubernetes learning**.
 
----
-
 ## 7. Practice Questions
 
 ### Conceptual Questions
@@ -241,8 +219,6 @@ This is the **foundation for container orchestration and Kubernetes learning**.
 4. Can multiple containers be created from a single image? Why?
 5. What happens to container data when the container is deleted?
 
----
-
 ### Command-Based Questions
 
 6. Command to list all Docker images
@@ -251,15 +227,11 @@ This is the **foundation for container orchestration and Kubernetes learning**.
 9. Command to stop a running container
 10. Command to remove an image
 
----
-
 ### Kubernetes-Oriented Questions
 
 11. What Kubernetes object replaces `docker run`?
 12. Why does Kubernetes require images to exist before deployment?
 13. How does Kubernetes use the same image for scaling?
-
----
 
 ### Hands-on Tasks
 

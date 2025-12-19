@@ -16,8 +16,6 @@ Characteristics of layers:
 
 Docker uses a **Union File System (UnionFS)** to combine these layers into a single view.
 
----
-
 ### Docker Layer Caching
 
 Docker uses **layer caching** to speed up image builds.
@@ -28,8 +26,6 @@ Key points:
 * If a layer changes, all layers **after it** are rebuilt
 * Cache improves build speed and reduces resource usage
 
----
-
 ## 2. How Layers and Caching Work (Kubernetes Perspective)
 
 ### Image Build Workflow
@@ -38,8 +34,6 @@ Key points:
 2. Each instruction creates a new layer
 3. Layers are cached locally
 4. Final image is pushed to a registry
-
----
 
 ### Why Layers Matter in Kubernetes
 
@@ -52,8 +46,6 @@ Key points:
 
 Kubernetes nodes pull only **missing layers**, not the entire image.
 
----
-
 ## 3. Hands-on Practice: Understanding Layers and Cache
 
 ### Step 1: Create a Working Directory
@@ -63,7 +55,7 @@ mkdir layers-demo
 cd layers-demo
 ```
 
----
+
 
 ### Step 2: Create a Sample Dockerfile
 
@@ -81,8 +73,6 @@ RUN echo "Docker Layers Demo" >> /app.txt
 CMD ["cat", "/app.txt"]
 ```
 
----
-
 ### Step 3: Create Application File
 
 Create `app.txt`:
@@ -90,8 +80,6 @@ Create `app.txt`:
 ```text
 Hello from Docker
 ```
-
----
 
 ### Step 4: Build the Image
 
@@ -103,8 +91,6 @@ Observe the output:
 
 * Each Dockerfile instruction creates a layer
 * Cached layers will be reused on subsequent builds
-
----
 
 ### Step 5: Rebuild the Image (Cache Hit)
 
@@ -119,8 +105,6 @@ Using cache
 ```
 
 This indicates Docker reused existing layers.
-
----
 
 ### Step 6: Modify the Application File
 
@@ -142,8 +126,6 @@ Observation:
 * All layers **after** it are rebuilt
 * Layers before remain cached
 
----
-
 ### Step 7: Run the Container
 
 ```bash
@@ -156,8 +138,6 @@ Expected output:
 Hello from Docker - Updated
 Docker Layers Demo
 ```
-
----
 
 ## 4. Best Practices for Layer Caching
 
@@ -173,16 +153,12 @@ Example:
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 ```
 
----
-
 ### Why This Matters for Kubernetes
 
 * Faster CI/CD pipelines
 * Faster Pod restarts
 * Reduced image pull time
 * Lower network and storage usage
-
----
 
 ## 5. How This Helps in Learning Kubernetes
 
@@ -194,8 +170,6 @@ Understanding layers and caching helps you:
 * Save cluster bandwidth and storage
 
 Efficient images lead to **stable and performant clusters**.
-
----
 
 ## 6. Conclusion and Summary
 
@@ -209,8 +183,6 @@ At the end of this module, you learned:
 
 This knowledge is critical for **production-ready containers**.
 
----
-
 ## 7. Practice Questions
 
 ### Conceptual Questions
@@ -220,23 +192,17 @@ This knowledge is critical for **production-ready containers**.
 3. What is Docker layer caching?
 4. Why are layers rebuilt after a change?
 
----
-
 ### Command-Based Questions
 
 5. Command to build a Docker image
 6. How do you tag an image during build?
 7. Command to run a container from an image
 
----
-
 ### Kubernetes-Oriented Questions
 
 8. Why does Kubernetes pull only missing layers?
 9. How do optimized layers improve Pod startup time?
 10. What happens in Kubernetes when a new image version is deployed?
-
----
 
 ### Hands-on Tasks
 

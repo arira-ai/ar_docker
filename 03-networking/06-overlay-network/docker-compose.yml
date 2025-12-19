@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: nginx
+    ports:
+      - "8084:80"
+    networks:
+      - app-overlay
+    deploy:
+      replicas: 2
+
+networks:
+  app-overlay:
+    driver: overlay
+    attachable: true

@@ -19,8 +19,6 @@ CMD ["executable", "param1", "param2"]
 CMD command param1 param2
 ```
 
----
-
 ### ENTRYPOINT
 
 `ENTRYPOINT` defines the **main executable** for the container.
@@ -49,7 +47,6 @@ ENTRYPOINT command param1
 | Best use    | Default behavior | Mandatory behavior |
 | Typical use | App arguments    | Application itself |
 
----
 
 ## 2. How CMD and ENTRYPOINT Work Together (Kubernetes Perspective)
 
@@ -91,8 +88,6 @@ Output:
 Hello Kubernetes
 ```
 
----
-
 ### Kubernetes Mapping
 
 | Docker              | Kubernetes        |
@@ -103,7 +98,6 @@ Hello Kubernetes
 
 Kubernetes directly maps `ENTRYPOINT` and `CMD` to `command` and `args`.
 
----
 
 ## 3. Hands-on Practice: CMD vs ENTRYPOINT
 
@@ -113,8 +107,6 @@ Kubernetes directly maps `ENTRYPOINT` and `CMD` to `command` and `args`.
 mkdir cmd-entrypoint-demo
 cd cmd-entrypoint-demo
 ```
-
----
 
 ### Step 2: Dockerfile with CMD
 
@@ -148,8 +140,6 @@ Override CMD:
 ```bash
 docker run cmd-demo echo "CMD overridden"
 ```
-
----
 
 ### Step 3: Dockerfile with ENTRYPOINT
 
@@ -187,8 +177,6 @@ docker run entrypoint-demo echo "Trying override"
 Observation:
 
 * ENTRYPOINT still executes
-
----
 
 ### Step 4: Combined CMD and ENTRYPOINT
 
@@ -230,16 +218,12 @@ Output:
 Hello Kubernetes
 ```
 
----
-
 ## 4. CMD vs ENTRYPOINT – Best Practices
 
 * Use `ENTRYPOINT` for the main application
 * Use `CMD` for default arguments
 * Always use **exec form** (`["executable"]`)
 * Avoid shell form for production images
-
----
 
 ## 5. How This Helps in Learning Kubernetes
 
@@ -256,7 +240,6 @@ This is critical for:
 * Init containers
 * Job and CronJob workloads
 
----
 
 ## 6. Conclusion and Summary
 
@@ -269,8 +252,6 @@ At the end of this module, you learned:
 
 This knowledge is essential for writing **production-grade container images**.
 
----
-
 ## 7. Practice Questions
 
 ### Conceptual Questions
@@ -280,7 +261,6 @@ This knowledge is essential for writing **production-grade container images**.
 3. Why is ENTRYPOINT preferred for main applications?
 4. Why should exec form be used?
 
----
 
 ### Command-Based Questions
 
@@ -288,15 +268,11 @@ This knowledge is essential for writing **production-grade container images**.
 6. How do you override ENTRYPOINT?
 7. Command to build an image using a specific Dockerfile?
 
----
-
 ### Kubernetes-Oriented Questions
 
 8. How does Kubernetes override CMD?
 9. What happens if both command and args are defined in a Pod?
 10. Why do containers fail if CMD/ENTRYPOINT is misconfigured?
-
----
 
 ### Hands-on Tasks
 
