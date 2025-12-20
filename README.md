@@ -1,45 +1,53 @@
-# docker-to-k8s-mastery
+# <img src="https://avatars.githubusercontent.com/u/5429470?s=200&v=4" width="80" alt="Docker Logo"> Docker Learning Path
 
-A hands-on tutorial taking learners from Docker basics to Kubernetes readiness. Modules are numbered and progressive. Use the supplied exercises to run locally, experiment, and then map each concept to Kubernetes (Module 06).
+Welcome to the **Docker Learning Path Repo** – your **complete guide from zero to hero** in Docker! 
 
-Preface:
-- Always start each exercise from the exercise folder.
-- Use `docker system prune` cautiously between exercises to keep environment clean.
-- Encourage students to try converting Compose files to K8s YAML (Module 06 will provide patterns).
 
-Author: Arira Ai
 
-```
-docker-to-k8s-mastery/
-├── 01-images-containers/
-│   ├── 01-dockerfile-basics/
-│   ├── 02-layers-and-caching/
-│   ├── 03-cmd-vs-entrypoint/
-│   └── 04-lifecycle-start-stop/
-├── 02-persistence/
-│   ├── 01-basic-volumes/
-│   ├── 02-bind-mounts/
-│   ├── 03-named-volumes-lifecycle/
-│   └── 04-backup-restore-volume/
-├── 03-networking/
-│   ├── 01-bridge-network/
-│   ├── 02-container-to-container/
-│   ├── 03-user-defined-networks/
-│   └── 04-dns-and-service-discovery/
-├── 04-compose/
-│   ├── 01-multi-service-app/
-│   ├── 02-depends-on-and-healthcheck/
-│   ├── 03-env-files-and-secrets/
-│   └── 04-scale-and-recreate/
-├── 05-swarm/
-│   ├── 01-init-swarm/
-│   ├── 02-services-and-replicas/
-│   ├── 03-updates-and-rollbacks/
-│   └── 04-overlay-networks/
-├── 06-pre-k8s-architecture/
-│   ├── 01-imperative-vs-declarative/
-│   ├── 02-application-structure-for-k8s/
-│   └── 03-mapping-docker-concepts-to-k8s/
-└── README.md
+##  Why This Repo?
 
+Docker is the **industry-standard container platform** that allows developers and DevOps engineers to **package, ship, and run applications reliably**.  
+This repository is designed to take a **complete beginner** and turn them into a **confident Docker practitioner** by providing:
+
+- Step-by-step tutorials  
+- Hands-on labs  
+- Dockerfile and Compose examples  
+- Networking and storage exercises  
+- Real-world best practices  
+
+Whether you are preparing for **DevOps roles**, **Docker certification**, or **building containerized applications**, this repo is your **one-stop resource**.
+
+
+##  What You Will Learn
+
+- **Docker Basics**: Images, containers, commands  
+- **Dockerfile**: Building reproducible images  
+- **Container Networking**: Bridge, host, overlay, port mapping  
+- **Volumes and Storage**: Persistent data management  
+- **Compose & Multi-Container Apps**: Orchestration basics  
+- **Container Debugging**: Logs, exec, inspect  
+- **Best Practices & Anti-Patterns**: Optimized Docker usage  
+
+By following this repo, you’ll **gain hands-on experience**, not just theory.
+
+
+##  Collaboration
+
+We **welcome contributions**! If you are passionate about Docker, DevOps, or containerized applications, you can:
+
+- Add new tutorials  
+- Improve existing labs  
+- Suggest real-world examples  
+- Report issues or request features  
+
+> Let’s make this repo a **community-driven Docker learning hub**!
+
+
+##  Getting Started
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/arira-ai/ar_docker.git
+cd ar_docker
 ```
