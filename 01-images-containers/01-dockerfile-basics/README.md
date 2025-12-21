@@ -52,7 +52,7 @@ Key characteristics of containers:
 | ------------------- | ------------------------ |
 | Docker Image        | Container Image          |
 | Container           | Container (inside a Pod) |
-| docker run          | Pod                      |
+| docker run          | kubectl run              |
 | Docker Hub          | Image Registry           |
 | Multiple containers | Replicas                 |
 
@@ -61,10 +61,10 @@ It only runs **containers created from pre-built images**.
 
 Understanding images vs containers is mandatory before learning:
 
-* Pods
-* Deployments
-* ReplicaSets
-* Scaling
+* **Pods:** The smallest unit in Kubernetes that runs one or more containers together.
+* **Deployments:** Manage and update Pods automatically using a defined configuration.
+* **ReplicaSets:** Ensure a specified number of identical Pods are always running.
+* **Scaling:** Increasing or decreasing the number of Pods to match workload demand.
 
 ## 3. Hands-on Practice: Images and Containers
 
