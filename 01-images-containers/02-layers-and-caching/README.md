@@ -56,7 +56,6 @@ cd layers-demo
 ```
 
 
-
 ### Step 2: Create a Sample Dockerfile
 
 Create a file named `Dockerfile`:
