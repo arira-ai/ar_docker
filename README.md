@@ -1,8 +1,11 @@
-# <img src="https://avatars.githubusercontent.com/u/5429470?s=200&v=4" width="80" alt="Docker Logo"> Docker Learning Path
+<center>
 
-Welcome to the **Docker Learning Path Repo** – your **complete guide from zero to hero** in Docker! 
+# **Docker: Building, Shipping, and Running Applications Anywhere**
+</center>
 
-
+<p align="center">
+  <img src=https://avatars.githubusercontent.com/u/5429470?s=200&v=4" width="200" alt="Docker Logo">
+</p>
 
 ##  Why This Repo?
 
