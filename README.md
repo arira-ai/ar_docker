@@ -1,11 +1,23 @@
-<center>
+<div align="center">
 
-# **Docker: Building, Shipping, and Running Applications Anywhere**
-</center>
+<img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg" width="140" style="margin-bottom: 20px;">
 
-<p align="center">
-  <img src=https://avatars.githubusercontent.com/u/5429470?s=200&v=4" width="200" alt="Docker Logo">
-</p>
+# Docker
+### Modern Containers for Modern Apps
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Docker Engine](https://img.shields.io/badge/Docker-25.0+-2496ED.svg?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+---
+
+**Build, ship, and run any application anywhere. The definitive guide to containerization.**
+
+[Explore Labs](#-getting-started) • [View Modules](#-what-you-will-learn) • [Contribute](#-collaboration)
+
+</div>
+
+<br/>
 
 ##  Why This Repo?
 
