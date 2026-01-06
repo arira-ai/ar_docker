@@ -24,3 +24,6 @@ def get_db_version():
 def index():
     db_ver = get_db_version()
     return f"Hello from John! DB: {db_ver}\n"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
