@@ -1,12 +1,7 @@
-# Writing and Building a Dockerfile
-
-In real projects, **need to build  own images using a Dockerfile**.
+## What Is a Dockerfile?
 
 A **Dockerfile** is a **text file** that contains instructions to build a Docker image.
-
----
-
-## What Is a Dockerfile?
+In real projects, **need to build  own images using a Dockerfile**.
 
 A Dockerfile defines:
 
