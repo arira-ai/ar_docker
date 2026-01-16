@@ -1,35 +1,83 @@
-# Docker Dangling Images – Practice Guide
+# Docker Dangling Images – Complete Practice Guide
 
-## What are Dangling Images?
+## 1. What Are Docker Dangling Images?
 
 **Dangling images** are Docker images that:
 
+* Have **no repository name**
 * Have **no tag**
-* Are shown as `<none>:<none>`
+* Appear as:
+
+  ```
+  <none>:<none>
+  ```
 * Are **not referenced** by any container
-* Usually created when:
+* Are **not directly usable**
 
-  * You rebuild an image
-  * A build fails midway
-  * Image layers are replaced by a new build
+They usually exist as **leftover image layers** and only **consume disk space**.
 
-They **consume disk space** but are **not useful**.
+---
 
+### Key Properties
 
+* Cannot be run directly
+* Not linked to any container
+* Safe to remove
+* Accumulate silently over time
 
-## How Dangling Images are Created (Example)
+---
+
+## 2. Why Dangling Images Are Created
+
+Dangling images are created when Docker **replaces image references** during builds.
+
+### Common Scenarios
+
+* Rebuilding an image with the **same name**
+* Tagging a new version of an image
+* A build **fails midway**
+* CI/CD pipelines that build frequently
+
+---
+
+### Example: How Dangling Images Are Created
 
 ```bash
 docker build -t myapp:v1 .
 docker build -t myapp:v2 .
 ```
 
-Now the old image layers become **dangling**.
+What happens:
 
+* `myapp:v2` points to the latest image
+* Old image layers lose their tag
+* Old image becomes `<none>:<none>` → **dangling**
 
-## List Dangling Images
+---
 
-### Command
+### Image Reference Flow (Visual)
+
+```mermaid
+
+flowchart TD
+    subgraph State_1 [Initial State]
+        T1[myapp:latest] --> ID1[Image ID: abc123]
+    end
+
+    subgraph State_2 [After 'docker build' with same tag]
+        T2[myapp:latest] --> ID2[Image ID: def456]
+        ID1 --> Dangling["&lt;none&gt;:&lt;none&gt; <br/>(Dangling Image)"]
+    end
+
+    %% Flow
+    State_1 -- "New Build Replaces Tag" --> State_2
+```
+
+---
+
+## 3. Listing Dangling Images
+
+### Command (Recommended)
 
 ```bash
 docker images -f dangling=true
@@ -42,25 +90,31 @@ REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
 <none>       <none>    a1b2c3d4e5f6   2 days ago     125MB
 ```
 
-## List All Images (To Compare)
+---
+
+### List All Images (For Comparison)
 
 ```bash
 docker images
 ```
 
-Look for:
+Look specifically for:
 
 ```
 <none>   <none>
 ```
 
-## Remove Dangling Images (Safe Cleanup)
+---
+
+## 4. Removing Dangling Images (Safe Cleanup)
+
+### Recommended Cleanup Command
 
 ```bash
 docker image prune
 ```
 
-### Interactive prompt:
+### Interactive Warning
 
 ```
 WARNING! This will remove all dangling images.
@@ -69,18 +123,31 @@ Are you sure you want to continue? [y/N]
 
 Type:
 
-```
+```bash
 y
 ```
 
-## Remove Dangling Images Without Prompt
+ This removes **only dangling images**
+
+---
+
+### Force Cleanup (No Prompt)
 
 ```bash
 docker image prune -f
 ```
 
+Useful for:
 
-## Remove Specific Dangling Image
+* CI pipelines
+* Automation
+* Scheduled cleanup jobs
+
+---
+
+## 5. Removing a Specific Dangling Image
+
+If you want fine-grained control:
 
 ```bash
 docker rmi <IMAGE_ID>
@@ -92,7 +159,9 @@ Example:
 docker rmi a1b2c3d4e5f6
 ```
 
-## Remove ALL Unused Images (Be Careful)
+---
+
+## 6. Removing ALL Unused Images
 
 ```bash
 docker image prune -a
@@ -103,54 +172,108 @@ This removes:
 * Dangling images
 * Unused tagged images
 
-**Do NOT run in production casually**
+**Danger Zone**
+
+* Can remove images you may reuse later
+* Avoid running casually on shared systems
+
+---
+
+### Cleanup Scope Comparison
+
+```mermaid
+graph LR
+    A[Dangling Images] -->|docker image prune| B[Removed]
+    C[Unused Tagged Images] -->|docker image prune -a| B
+    D[Used Images] -->|Never Removed| E[Safe]
+```
 
 
-## Difference: Dangling vs Unused Images
+## 7. Dangling vs Unused vs Used Images
 
-| Type           | Description           | Safe to Delete |
-| -------------- | --------------------- | -------------- |
-| Dangling Image | `<none>:<none>`       | ✅ Yes          |
-| Unused Image   | Tagged but not used   | ⚠️ Depends     |
-| Used Image     | Attached to container | ❌ No           |
+| Image Type     | Description         | Safe to Delete |
+| -------------- | ------------------- | -------------- |
+| Dangling Image | `<none>:<none>`     | Yes          |
+| Unused Image   | Tagged but unused   | Depends     |
+| Used Image     | Linked to container | No           |
 
+---
 
-## Disk Space Check (Before & After)
+## 8. Disk Space Check (Before & After)
+
+### Command
 
 ```bash
 docker system df
 ```
 
-Shows:
+Shows usage of:
 
 * Images
 * Containers
 * Volumes
 * Build cache
 
+### Why This Matters
 
-## Best Practice
+* Dangling images can consume **GBs of disk**
+* Disk pressure causes:
+
+  * Build failures
+  * Slow Docker performance
+  * CI pipeline issues
+
+---
+
+## 9. Best Practices (Production-Safe)
 
 * Clean dangling images **regularly**
-* Use:
+* Always prefer:
 
-```bash
-docker image prune
-```
+  ```bash
+  docker image prune
+  ```
+* Avoid `-a` unless you understand impact
+* In CI/CD:
 
-* In CI pipelines, cleanup after builds
+  * Cleanup **after builds**
+  * Avoid disk bloat on agents
 
+---
 
-## Practice Tasks (For Freshers)
+## 10. Practice Tasks
 
 1. Build an image twice with different tags
-2. Identify dangling images
-3. Remove dangling images
-4. Verify disk usage before & after
+2. Run:
 
+   ```bash
+   docker images
+   ```
+3. Identify `<none>:<none>` images
+4. Run:
 
-## One-Line Cleanup Command (Good Demo)
+   ```bash
+   docker image prune
+   ```
+5. Verify disk usage:
+
+   ```bash
+   docker system df
+   ```
+
+---
+
+## 11. One-Line Demo Command
 
 ```bash
 docker images -f dangling=true && docker image prune -f
 ```
+
+Shows:
+
+* What will be removed
+* Then removes it cleanly
+
+---
+
+**Understanding dangling images is essential for maintaining a clean, efficient Docker environment.**
