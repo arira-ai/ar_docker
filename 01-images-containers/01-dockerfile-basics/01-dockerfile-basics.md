@@ -256,7 +256,7 @@ Now the image is available for **Kubernetes deployments**.
 
 ---
 
-## Dockerfile → Docker Registry Flow (Mermaid Diagram)
+## Dockerfile → Docker Registry Flow
 
 ```mermaid
 graph LR
