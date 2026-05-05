@@ -1,34 +1,7 @@
 # 04 – Container Lifecycle: Start, Stop, and Restart
 
-## 1. Basics: Container Lifecycle
-
-A Docker container follows a **well-defined lifecycle** from creation to deletion.
-Understanding this lifecycle is essential for:
-
-* Debugging container issues
-* Automating container operations
-* Preparing for Kubernetes concepts
-
-Containers are **ephemeral by design**.
-Once stopped and removed, they **do not retain state** unless external storage (volumes or bind mounts) is used. Storage persistence is covered separately in volume concepts.
-
----
-
-## 2. Container Lifecycle Stages
-
-### Lifecycle Stages Overview
-
-1. Created
-2. Started
-3. Running
-4. Paused (optional)
-5. Stopped
-6. Removed
-
----
-
-### Lifecycle Flow Diagram
-
+### Container Lifecycle Flow Diagram
+ 
 ```mermaid
 stateDiagram-v2
     direction TB
@@ -57,7 +30,30 @@ stateDiagram-v2
     Removed --> [*]
 
 ```
+## 1. Basics: Container Lifecycle
 
+A Docker container follows a **well-defined lifecycle** from creation to deletion.
+Understanding this lifecycle is essential for:
+
+* Debugging container issues
+* Automating container operations
+* Preparing for Kubernetes concepts
+
+Containers are **ephemeral by design**.
+Once stopped and removed, they **do not retain state** unless external storage (volumes or bind mounts) is used. Storage persistence is covered separately in volume concepts.
+
+---
+
+## 2. Container Lifecycle Stages
+
+### Lifecycle Stages Overview
+
+1. Created
+2. Started
+3. Running
+4. Paused (optional)
+5. Stopped
+6. Removed
 ---
 
 ## 3. Container Lifecycle States Explained
